@@ -6,100 +6,107 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="#3949AB">
 
-
-    <TextView
-        android:id="@+id/tv1"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:textSize="20sp"
+        app:layout_constraintHeight_percent="0.4"
         app:layout_constraintTop_toTopOf="parent"
-        android:text="체크박스1 체크됨"
-        android:visibility="gone"
-        android:gravity="center_horizontal"
-        />
-
-    <TextView
-        android:id="@+id/tv2"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:textSize="20sp"
-        android:text="체크박스 2 체크됨"
-        app:layout_constraintTop_toBottomOf="@id/tv1"
-        android:visibility="gone"
-        android:gravity="center_horizontal"/>
-
-    <TextView
-        android:id="@+id/tv3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/tv2"
-        android:text="Hello world!"
-        android:textSize="20sp"
-        android:gravity="center_horizontal"
-        android:visibility="visible"/>
-
-    <CheckBox
-        android:id="@+id/check_1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/tv3"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:text="CheckBox"
-        android:onClick="onCheckBoxClicked"
-        />
+        app:layout_constraintRight_toRightOf="parent"
+        android:background="#584ADA"
+        >
+
+        <TextView
+            android:id="@+id/tv1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:text="오전"
+            android:textColor="#fff"
+            android:textSize="20sp"
+            app:layout_constraintVertical_bias="0.3"
+            android:layout_marginLeft="20dp"/>
+        
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@id/tv1"
+            app:layout_constraintLeft_toRightOf="@id/tv1"
+            android:layout_marginLeft="20dp"
+            android:text="5:40"
+            android:textColor="#fff"
+            android:textSize="40sp"
+            />
+
+        <Switch
+            android:id="@+id/check"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@id/tv1"
+            app:layout_constraintRight_toRightOf="parent"
+            android:onClick="onClickChecked"/>
+
+        <CheckBox
+            android:id="@+id/checkbox_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" 반복"
+            app:layout_constraintTop_toBottomOf="@id/tv1"
+            android:layout_marginTop="20dp"
+            app:layout_constraintLeft_toLeftOf="@id/tv1"
+            android:textColor="#fff"
+            android:buttonTint="#fff"
+            android:onClick="onClickChecked"/>
+
+        <ImageView
+            android:id="@+id/image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_baseline_notifications_24"
+            app:layout_constraintTop_toBottomOf="@id/checkbox_1"
+            app:layout_constraintLeft_toLeftOf="@id/checkbox_1"
+            android:layout_marginTop="20dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Helium"
+            app:layout_constraintLeft_toRightOf="@id/image"
+            app:layout_constraintBottom_toBottomOf="@id/image"
+            android:textColor="#fff"/>
+
+        <CheckBox
+            android:id="@+id/checkbox_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/image"
+            android:text="진동"
+            android:layout_marginRight="20dp"
+            android:textColor="#fff"
+            android:buttonTint="#fff"
+            android:onClick="onClickChecked"
+            />
 
 
-    <CheckBox
-        android:id="@+id/check_2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/check_1"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:text="CheckBox"
-        android:onClick="onCheckBoxClicked"
-        />
-    
-    <Button
-        android:id="@+id/bt_1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/check_2"
-        android:text="체크상태 확인"
-        />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="@id/image"
+            android:text="라벨"
+            android:textColor="#fff"
+            android:textSize="15sp"
+            android:layout_marginBottom="20dp"/>
 
-    <Button
-        android:id="@+id/bt_2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/bt_1"
-        android:text="모두 체크하기"
-        />
+        
+        
 
-    <Button
-        android:id="@+id/bt_3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/bt_2"
-        android:text="모두 해제하기"
-        />
-
-    <Button
-        android:id="@+id/bt_4"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/bt_3"
-        android:text="TOGGLE"
-        />
-
-    <Switch
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/bt_4"
-        android:text="Switch"
-        />
-
-
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

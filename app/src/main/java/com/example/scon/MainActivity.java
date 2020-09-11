@@ -5,113 +5,99 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
-
-    private Button button1,button2;
-    private ImageView img_01,img_02,img_03,img_04;
-    private int imageIndex =1;
+    private TextView tv1,tv2,tv3;
+    private Button bt1,bt2,bt3,bt4;
+    private CheckBox check1,check2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        tv1 = findViewById(R.id.tv1);
+        tv2 = findViewById(R.id.tv2);
+        tv3 = findViewById(R.id.tv3);
+        bt1 = findViewById(R.id.bt_1);
+        bt2 = findViewById(R.id.bt_2);
+        bt3 = findViewById(R.id.bt_3);
+        bt4 = findViewById(R.id.bt_4);
+        check1 = findViewById(R.id.check_1);
+        check2 = findViewById(R.id.check_2);
 
-        img_01 = findViewById(R.id.image_01);
-        img_02 = findViewById(R.id.image_02);
-        img_03 = findViewById(R.id.image_03);
-        img_04 = findViewById(R.id.image_04);
-        button1 = findViewById(R.id.button1);
-        button2 = findViewById(R.id.button2);
 
-        button1.setOnClickListener(new View.OnClickListener() {
+
+
+
+        bt1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                imageIndex--;
-                switch (imageIndex){
-                    case 1:
-                        img_01.setVisibility(View.VISIBLE);
-                        img_02.setVisibility(View.VISIBLE);
-                        img_03.setVisibility(View.INVISIBLE);
-                        img_04.setVisibility(View.INVISIBLE);
-                        break;
-                    case 2:
-                        img_01.setVisibility(View.INVISIBLE);
-                        img_02.setVisibility(View.INVISIBLE);
-                        img_03.setVisibility(View.VISIBLE);
-                        img_04.setVisibility(View.INVISIBLE);
-                        break;
-                    case 3:
-                        img_01.setVisibility(View.INVISIBLE);
-                        img_02.setVisibility(View.INVISIBLE);
-                        img_03.setVisibility(View.VISIBLE);
-                        img_04.setVisibility(View.VISIBLE);
-                        break;
-                    case 4:
-                        img_01.setVisibility(View.VISIBLE);
-                        img_02.setVisibility(View.INVISIBLE);
-                        img_03.setVisibility(View.INVISIBLE);
-                        img_04.setVisibility(View.INVISIBLE);
-                        break;
-                    default:
-                        imageIndex =4;
-                        img_01.setVisibility(View.VISIBLE);
-                        img_02.setVisibility(View.INVISIBLE);
-                        img_03.setVisibility(View.INVISIBLE);
-                        img_04.setVisibility(View.INVISIBLE);
-                        break;
+                tv3.setVisibility(View.INVISIBLE);
+                if (check1.isChecked()){
+                    tv1.setVisibility(View.VISIBLE);
+                }else{
+                    tv1.setVisibility(View.GONE);
                 }
-
-
+                if (check2.isChecked()){
+                    tv2.setVisibility(View.VISIBLE);
+                }else{
+                    tv2.setVisibility(View.GONE);
+                }
 
             }
         });
 
-        button2.setOnClickListener(new View.OnClickListener() {
+        bt2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                imageIndex++;
-                switch (imageIndex){
-                    case 1:
-                        img_01.setVisibility(View.VISIBLE);
-                        img_02.setVisibility(View.VISIBLE);
-                        img_03.setVisibility(View.INVISIBLE);
-                        img_04.setVisibility(View.INVISIBLE);
-                        break;
-                    case 2:
-                        img_01.setVisibility(View.INVISIBLE);
-                        img_02.setVisibility(View.INVISIBLE);
-                        img_03.setVisibility(View.VISIBLE);
-                        img_04.setVisibility(View.INVISIBLE);
-                        break;
-                    case 3:
-                        img_01.setVisibility(View.INVISIBLE);
-                        img_02.setVisibility(View.INVISIBLE);
-                        img_03.setVisibility(View.VISIBLE);
-                        img_04.setVisibility(View.VISIBLE);
-                        break;
-                    case 4:
-                        img_01.setVisibility(View.VISIBLE);
-                        img_02.setVisibility(View.INVISIBLE);
-                        img_03.setVisibility(View.INVISIBLE);
-                        img_04.setVisibility(View.INVISIBLE);
-                        break;
-                    default:
-                        imageIndex =1;
-                        img_01.setVisibility(View.VISIBLE);
-                        img_02.setVisibility(View.VISIBLE);
-                        img_03.setVisibility(View.INVISIBLE);
-                        img_04.setVisibility(View.INVISIBLE);
-                        break;
-                }
+                check1.setChecked(true);
+                check2.setChecked(true);
+            }
+        });
+        bt3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                check1.setChecked(false);
+                check2.setChecked(false);
             }
         });
 
 
+        bt4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                check1.toggle();
+                check2.toggle();
+            }
+        });
 
     }
+
+    public void onCheckBoxClicked(View view){
+        switch (view.getId()) {
+            case R.id.check_1:
+                if (check1.isChecked()) {
+                    Toast.makeText(this, "체크박스1이 체크되었습니다", Toast.LENGTH_SHORT).show();
+
+                } else {
+                    Toast.makeText(this, "체크박스1가 해제되었습니다", Toast.LENGTH_SHORT).show();
+                }
+                break;
+            case R.id.check_2:
+
+                if (check2.isChecked()) {
+                    Toast.makeText(this, "체크박스2이 체크되었습니다", Toast.LENGTH_SHORT).show();
+
+                } else {
+                    Toast.makeText(this, "체크박스2가 해제되었습니다", Toast.LENGTH_SHORT).show();
+                }
+        }
+    }
+
+
 }

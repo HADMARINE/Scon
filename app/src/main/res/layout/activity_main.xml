@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -8,65 +8,98 @@
     tools:context=".MainActivity"
     android:orientation="vertical">
 
-    <LinearLayout
+
+    <TextView
+        android:id="@+id/tv1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:textSize="20sp"
+        app:layout_constraintTop_toTopOf="parent"
+        android:text="체크박스1 체크됨"
+        android:visibility="gone"
+        android:gravity="center_horizontal"
+        />
+
+    <TextView
+        android:id="@+id/tv2"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:textSize="20sp"
+        android:text="체크박스 2 체크됨"
+        app:layout_constraintTop_toBottomOf="@id/tv1"
+        android:visibility="gone"
+        android:gravity="center_horizontal"/>
+
+    <TextView
+        android:id="@+id/tv3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_horizontal">
+        app:layout_constraintTop_toBottomOf="@id/tv2"
+        android:text="Hello world!"
+        android:textSize="20sp"
+        android:gravity="center_horizontal"
+        android:visibility="visible"/>
 
-        <Button
-            android:id="@+id/button1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="&lt;"
-            />
-        <Button
-            android:id="@+id/button2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="&gt;"/>
-
-    </LinearLayout>
+    <CheckBox
+        android:id="@+id/check_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/tv3"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:text="CheckBox"
+        android:onClick="onCheckBoxClicked"
+        />
 
 
-
-    <FrameLayout
+    <CheckBox
+        android:id="@+id/check_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/check_1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:text="CheckBox"
+        android:onClick="onCheckBoxClicked"
+        />
+    
+    <Button
+        android:id="@+id/bt_1"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        >
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/check_2"
+        android:text="체크상태 확인"
+        />
 
-        <ImageView
-            android:id="@+id/image_03"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:src="@drawable/img06"
-            />
-        <ImageView
-            android:id="@+id/image_04"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:src="@drawable/img07"
-            />
+    <Button
+        android:id="@+id/bt_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/bt_1"
+        android:text="모두 체크하기"
+        />
+
+    <Button
+        android:id="@+id/bt_3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/bt_2"
+        android:text="모두 해제하기"
+        />
+
+    <Button
+        android:id="@+id/bt_4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/bt_3"
+        android:text="TOGGLE"
+        />
+
+    <Switch
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/bt_4"
+        android:text="Switch"
+        />
 
 
 
-        <ImageView
-            android:id="@+id/image_01"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:src="@drawable/img04"
-            />
-
-        <ImageView
-            android:id="@+id/image_02"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:src="@drawable/img05"
-            />
-
-
-
-
-    </FrameLayout>
-
-
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

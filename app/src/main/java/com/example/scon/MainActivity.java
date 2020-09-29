@@ -2,10 +2,13 @@ package com.example.scon;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Switch;
 import android.widget.TextView;
@@ -15,9 +18,8 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-
-    private Switch check;
-    private CheckBox checkBox_1,checkBox_2;
+    private Button bt_1,bt_2;
+    private EditText et;
 
 
 
@@ -26,50 +28,36 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        check = findViewById(R.id.check);
-        checkBox_1 = findViewById(R.id.checkbox_1);
-        checkBox_2 = findViewById(R.id.checkbox_2);
+        bt_1 = findViewById(R.id.BT_1);
+        bt_2 = findViewById(R.id.BT_2);
+        et = findViewById(R.id.ET);
 
-        
+        bt_1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String asd = et.getText().toString();
+
+                Intent intent1 = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:"+asd));
+                startActivity(intent1);
+            }
+        });
+
+        bt_2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent2 = new Intent(getApplicationContext(),MenuActivity.class);
+
+                intent2.putExtra("name","sunrin");
+                startActivity(intent2);
+                finish();
+            }
+        });
 
 
 
 
-    }
 
-    public void onClickChecked(View view){
-        switch (view.getId()){
-            case R.id.check:
-                if (check.isChecked()){
-                    Toast.makeText(this, "알람이 설정되었습니다", Toast.LENGTH_SHORT).show();
 
-                }else{
-                    Toast.makeText(this, "알람이 울리지 않습니다", Toast.LENGTH_SHORT).show();
-
-                }
-
-    
-                break;
-            case R.id.checkbox_1:
-                if (checkBox_1.isChecked()){
-                    Toast.makeText(this, "알람을 반복합니다", Toast.LENGTH_SHORT).show();
-                    
-                }else{
-                    Toast.makeText(this, "반복설정이 해제되었습니다", Toast.LENGTH_SHORT).show();
-                    
-                }
-                break;
-            case R.id.checkbox_2:
-                if (checkBox_2.isChecked()){
-                    Toast.makeText(this, "진동을 설정합니다", Toast.LENGTH_SHORT).show();
-
-                }else{
-                    Toast.makeText(this, "진동이 해제되었습니다", Toast.LENGTH_SHORT).show();
-
-                }
-                break;
-
-        }
     }
 
 

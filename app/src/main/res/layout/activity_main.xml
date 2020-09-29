@@ -6,107 +6,31 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:orientation="vertical"
-    android:background="#3949AB">
+    android:orientation="vertical">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <EditText
+        android:id="@+id/ET"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:layout_constraintHeight_percent="0.4"
+        android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        android:background="#584ADA"
-        >
 
-        <TextView
-            android:id="@+id/tv1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:text="오전"
-            android:textColor="#fff"
-            android:textSize="20sp"
-            app:layout_constraintVertical_bias="0.3"
-            android:layout_marginLeft="20dp"/>
-        
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="@id/tv1"
-            app:layout_constraintLeft_toRightOf="@id/tv1"
-            android:layout_marginLeft="20dp"
-            android:text="5:40"
-            android:textColor="#fff"
-            android:textSize="40sp"
-            />
+        />
+    <Button
+        android:id="@+id/BT_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/ET"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:text="전화걸기"/>
 
-        <Switch
-            android:id="@+id/check"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="@id/tv1"
-            app:layout_constraintRight_toRightOf="parent"
-            android:onClick="onClickChecked"/>
+    <Button
+        android:id="@+id/BT_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/BT_1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:text="메뉴화면"/>
 
-        <CheckBox
-            android:id="@+id/checkbox_1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text=" 반복"
-            app:layout_constraintTop_toBottomOf="@id/tv1"
-            android:layout_marginTop="20dp"
-            app:layout_constraintLeft_toLeftOf="@id/tv1"
-            android:textColor="#fff"
-            android:buttonTint="#fff"
-            android:onClick="onClickChecked"/>
-
-        <ImageView
-            android:id="@+id/image"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_baseline_notifications_24"
-            app:layout_constraintTop_toBottomOf="@id/checkbox_1"
-            app:layout_constraintLeft_toLeftOf="@id/checkbox_1"
-            android:layout_marginTop="20dp"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Helium"
-            app:layout_constraintLeft_toRightOf="@id/image"
-            app:layout_constraintBottom_toBottomOf="@id/image"
-            android:textColor="#fff"/>
-
-        <CheckBox
-            android:id="@+id/checkbox_2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintBottom_toBottomOf="@id/image"
-            android:text="진동"
-            android:layout_marginRight="20dp"
-            android:textColor="#fff"
-            android:buttonTint="#fff"
-            android:onClick="onClickChecked"
-            />
-
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="@id/image"
-            android:text="라벨"
-            android:textColor="#fff"
-            android:textSize="15sp"
-            android:layout_marginBottom="20dp"/>
-
-        
-        
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

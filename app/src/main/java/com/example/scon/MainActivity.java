@@ -18,7 +18,7 @@ import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
-//20620 이예찬
+//20622 이호준
 
 public class MainActivity extends AppCompatActivity {
     private Button bt1,bt2;
@@ -26,8 +26,7 @@ public class MainActivity extends AppCompatActivity {
     private FragmentTransaction transaction;
     private FragmentManager fm;
     private FirstFragment firstFragment = new FirstFragment();
-
-
+    private second secondFragment = new second();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,16 +36,21 @@ public class MainActivity extends AppCompatActivity {
         bt1 = findViewById(R.id.bt_1);
         bt2 = findViewById(R.id.bt_2);
         container = findViewById(R.id.container);
-
-
-
     }
+
     public void btn1Method(View view){
         fm = getSupportFragmentManager();
         transaction = fm.beginTransaction();
-        transaction.add(R.id.container,firstFragment);
+        transaction.replace(R.id.container,firstFragment);
         transaction.commit();
+    }
 
+    public void btn2Method(View view) {
+        fm = getSupportFragmentManager();
+        transaction = fm.beginTransaction();
+        transaction.replace(R.id.container, secondFragment);
+        transaction.addToBackStack(null);
+        transaction.commit();
     }
 
 

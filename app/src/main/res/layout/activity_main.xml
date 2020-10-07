@@ -29,7 +29,10 @@
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginTop="20dp"
         android:layout_marginHorizontal="20dp"
-        android:text="프로그레스바 보이기" />
+        android:text="프로그레스바 보이기"
+        android:onClick="btn2Method"
+    />
+
 
     <FrameLayout
         android:id="@+id/container"
@@ -39,7 +42,11 @@
         app:layout_constraintLeft_toLeftOf="@id/bt_2"
         app:layout_constraintRight_toRightOf="@id/bt_2"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_margin="20dp" />
+        android:layout_margin="20dp" >
+
+    </FrameLayout>
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

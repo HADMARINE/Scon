@@ -8,29 +8,38 @@
     tools:context=".MainActivity"
     android:orientation="vertical">
 
-    <EditText
-        android:id="@+id/ET"
+    <Button
+        android:id="@+id/bt_1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-
-        />
-    <Button
-        android:id="@+id/BT_1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/ET"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:text="전화걸기"/>
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="20dp"
+        android:layout_marginHorizontal="20dp"
+        android:text="화면 보이기"
+        android:onClick="btn1Method"/>
 
     <Button
-        android:id="@+id/BT_2"
-        android:layout_width="wrap_content"
+        android:id="@+id/bt_2"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/BT_1"
+        app:layout_constraintTop_toBottomOf="@id/bt_1"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:text="메뉴화면"/>
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="20dp"
+        android:layout_marginHorizontal="20dp"
+        android:text="프로그레스바 보이기" />
+
+    <FrameLayout
+        android:id="@+id/container"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/bt_2"
+        app:layout_constraintLeft_toLeftOf="@id/bt_2"
+        app:layout_constraintRight_toRightOf="@id/bt_2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_margin="20dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
